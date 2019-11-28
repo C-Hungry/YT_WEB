@@ -1,0 +1,298 @@
+/*
+* mr10 表示 margin-right:10px;
+* pr10 表示 padding-right:10px;
+* pd10 表示 padding:10px;
+* pd10_i 表示 padding: 10px!important;
+* 格式：m|p {direction} {number} [_i] || pd {number} [_i]
+* 范围： number: 1-10
+*/
+$direction: (top:t, bottom:b, right:r, left:l);
+
+@for $i from 0 through 10 {
+  .pd#{$i} {
+    padding: $i * 1px;
+  }
+
+  .pd#{$i}_i {
+    padding: $i * 1px !important;
+  }
+
+  @each $name,
+    $value in $direction {
+    .m#{$value}#{$i} {
+      margin-#{$name}: $i * 1px;
+    }
+
+    .m#{$value}#{$i}_i {
+      margin-#{$name}: $i * 1px !important;
+    }
+
+    .p#{$value}#{$i} {
+      padding-#{$name}: $i * 1px;
+    }
+
+    .p#{$value}#{$i}_i {
+      padding-#{$name}: $i * 1px !important;
+    }
+  }
+}
+
+/*
+* 字体大小
+* ft12 代表 font-size:12px;
+* 格式： ft {number}
+*/
+@for $i from 12 through 24 {
+  .ft#{$i} {
+    font-size: $i * 1px;
+  }
+}
+
+// 字体加粗
+.fb {
+  font-weight: bold;
+}
+
+/*
+* 文本省略...
+*/
+// 单行
+.text_overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行
+@for $i from 1 through 5 {
+  .text_overflow_#{$i} {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $i;
+    overflow: hidden;
+  }
+}
+
+/*
+* 浮动
+*/
+.fl {
+  float: left;
+}
+
+.fl_i {
+  float: left !important;
+}
+
+.fr {
+  float: right;
+}
+
+.fr_i {
+  float: right !important;
+}
+
+.cb {
+  clear: both;
+}
+
+.cb_i {
+  clear: both !important;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
+
+/*
+* 文本水平布局
+*/
+.tc {
+  text-align: center;
+}
+
+.tc_i {
+  text-align: center !important;
+}
+
+.tr {
+  text-align: right;
+}
+
+.tr_i {
+  text-align: right !important;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tl_i {
+  text-align: left !important;
+}
+
+/*
+* 文本垂直布局
+*/
+.vm {
+  vertical-align: middle;
+}
+
+.vm_i {
+  vertical-align: middle !important;
+}
+
+.vtb {
+  vertical-align: text-bottom;
+}
+
+.vtb_i {
+  vertical-align: text-bottom !important;
+}
+
+.vt {
+  vertical-align: top;
+}
+
+.vt_i {
+  vertical-align: top !important;
+}
+
+/*
+* position
+*/
+.pos-r {
+  position: relative;
+}
+
+.pos-r_i {
+  position: relative !important;
+}
+
+.pos-a {
+  position: absolute;
+}
+
+.pos-a_i {
+  position: absolute !important;
+}
+
+/*
+* display
+*/
+.dn {
+  display: none;
+}
+
+.dn_i {
+  display: none !important;
+}
+
+.db {
+  display: block;
+}
+
+.db_i {
+  display: block !important;
+}
+
+.dib {
+  display: inline-block;
+}
+
+.dib_i {
+  display: inline-block !important;
+}
+
+.di {
+  display: inline;
+}
+
+.di_i {
+  display: inline !important;
+}
+
+/*
+* overflow
+*/
+.ovh {
+  overflow: hidden;
+}
+
+.ovh_i {
+  overflow: hidden !important;
+}
+
+.ovs {
+  overflow: scroll;
+}
+
+.ovs_i {
+  overflow: scroll !important;
+}
+
+.vh {
+  visibility: hidden;
+}
+
+.vh_i {
+  visibility: hidden !important;
+}
+
+.vv {
+  visibility: visible;
+}
+
+.vv_i {
+  visibility: visible !important;
+}
+
+/*
+* 鼠标手
+*/
+.c_pointer {
+  cursor: pointer;
+}
+
+.c_pointer_i {
+  cursor: pointer !important;
+}
+
+/*
+* 隐藏
+*/
+.hide {
+  display: none;
+}
+
+.hide_i {
+  display: none !important;
+}
+
+/*
+* 伪元素
+*/
+.bracket {
+  &::before {
+    display: inline;
+    content: ' (';
+  }
+
+  &::after {
+    display: inline;
+    content: ') ';
+  }
+}
+
+.red {
+  color: #ff6464;
+}
+
+.green {
+  color: #71c7ad;
+}
